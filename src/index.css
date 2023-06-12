@@ -7,9 +7,21 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #d2ecee;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:root {
+  --mainBackgroundColor: #3cacacb0;
+  --itemBackgroundColor: #e5f3f2;
+  --textColor: #448585;
+  --secondaryTextColor: #000;
+  --accentTextColor: #fff;
+  --mainBoxShadow: -2px -2px 5px #ffffff, 3px 3px 5px rgba(0, 0, 0, 0.1);
+  --insetBoxShadow: inset -2px -2px 5px #ffffff,
+    inset 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
