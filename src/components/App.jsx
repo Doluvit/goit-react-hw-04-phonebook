@@ -3,6 +3,8 @@ import { ContactForm } from './contactForm/contactForm';
 import { ContactList } from './contactList/contactList';
 import { Filter } from './filter/filter';
 import { FormHeader, MainContainer } from './App.styled';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const contactsArr = [
   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -20,12 +22,12 @@ const App = () => {
     window.localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
-  const handleSubmit = data => {
-    setContacts(prev =>
-      prev.find(contact => contact.name === data.name)
-        ? alert(`${data.name} is already in contacts`)
-        : [data, ...prev]
-    );
+  const handleSubmit = newContact => {
+    if (contacts.find(contact => contact.name === newContact.name)) {
+      toast.error(`${newContact.name} is already in contacts.`);
+    } else {
+      setContacts(prevState => [newContact, ...prevState]);
+    }
   };
 
   const deleteContact = contactId => {
@@ -43,6 +45,7 @@ const App = () => {
 
   return (
     <MainContainer>
+      <ToastContainer autoClose={2000} />
       <FormHeader>Phonebook</FormHeader>
       <ContactForm onSubmit={handleSubmit} />
 

@@ -42,7 +42,12 @@ export const ContactForm = ({ onSubmit }) => {
         <Container autoComplete="off">
           <Section>
             <Label htmlFor="name">Name:</Label>
-            <Input name="name" type="text" id="name" placeholder="Example: John Snow" />
+            <Input
+              name="name"
+              type="text"
+              id="name"
+              placeholder="Example: John Snow"
+            />
             <ErrorMsg name="name" component="div" />
           </Section>
 
